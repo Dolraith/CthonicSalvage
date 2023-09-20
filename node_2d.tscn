@@ -1,0 +1,152 @@
+[gd_scene load_steps=18 format=3 uid="uid://cjgkvtn200346"]
+
+[ext_resource type="Script" path="res://Player.cs" id="1_qbmru"]
+[ext_resource type="Texture2D" uid="uid://c2uaddsddj55t" path="res://Assets/pv games/Preset Characters/$Captain_Female.png" id="2_4q8i2"]
+[ext_resource type="Texture2D" uid="uid://gb46rgisu4ur" path="res://Assets/rexard/sci-fiflatskills/Bg/Tex_bg_01.png" id="4_6tudd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_capdr"]
+size = Vector2(34, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55tdf"]
+atlas = ExtResource("2_4q8i2")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6et0"]
+atlas = ExtResource("2_4q8i2")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5h7w"]
+atlas = ExtResource("2_4q8i2")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qijmv"]
+atlas = ExtResource("2_4q8i2")
+region = Rect2(0, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3amq"]
+atlas = ExtResource("2_4q8i2")
+region = Rect2(80, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_saj1m"]
+atlas = ExtResource("2_4q8i2")
+region = Rect2(160, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8j44j"]
+atlas = ExtResource("2_4q8i2")
+region = Rect2(0, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2jiw"]
+atlas = ExtResource("2_4q8i2")
+region = Rect2(80, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewxhn"]
+atlas = ExtResource("2_4q8i2")
+region = Rect2(160, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cix4"]
+atlas = ExtResource("2_4q8i2")
+region = Rect2(0, 240, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mccy5"]
+atlas = ExtResource("2_4q8i2")
+region = Rect2(80, 240, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssssb"]
+atlas = ExtResource("2_4q8i2")
+region = Rect2(160, 240, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ac7y7"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55tdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6et0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5h7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6et0")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qijmv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3amq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_saj1m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3amq")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8j44j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2jiw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewxhn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2jiw")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cix4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mccy5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssssb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mccy5")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(-249, -252)
+
+[node name="Player" type="Area2D" parent="."]
+position = Vector2(250, 250)
+script = ExtResource("1_qbmru")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_capdr")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+sprite_frames = SubResource("SpriteFrames_ac7y7")
+animation = &"Down"
+
+[node name="RayCast2D" type="RayCast2D" parent="Player"]
+
+[node name="TexBg01" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(246, 246)
+texture = ExtResource("4_6tudd")
